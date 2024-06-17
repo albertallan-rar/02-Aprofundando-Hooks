@@ -14,7 +14,7 @@ export const Countdown = ({ task }: CountdownProps) => {
     activeCycle,
 
     amountSecondPassed,
-    setActiveCycle,
+
     setSecondsPassed,
     markCurrentCycleAsFinished,
     markCurrentCycleAsInterrupted,
@@ -58,10 +58,9 @@ export const Countdown = ({ task }: CountdownProps) => {
     }
   }, [activeCycle, minutes, seconds]);
 
-  function handleInterruptCycle() {
-    markCurrentCycleAsInterrupted();
-    setActiveCycle(null);
-  }
+  // function handleInterruptCycle() {
+  //   markCurrentCycleAsInterrupted();
+  // }
   return (
     <div>
       <CountdownContainer>
@@ -73,7 +72,7 @@ export const Countdown = ({ task }: CountdownProps) => {
       </CountdownContainer>
       {/* Pode-se passar posicionamento de um elemento para um numero igual em um vetor */}
       {activeCycle ? (
-        <StopCountdownButton type="button" onClick={handleInterruptCycle}>
+        <StopCountdownButton type="button" onClick={markCurrentCycleAsInterrupted}>
           <Stop size={24} />
           Parar
         </StopCountdownButton>
